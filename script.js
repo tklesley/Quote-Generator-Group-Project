@@ -35,6 +35,32 @@ checkQuoteData()
 */
 
 
-// I'll leave this here for now.  I might still be able to use it for getting a quote of the day thing going.
-const date = new Date();
-console.log(date);
+function getDailyQuote() {
+    const date = new Date();
+    const dateAsNum = date.getTime();
+
+    // URL that will fetch the daily quote
+    let url = "https://quotable.io/quotes?limit=1&page="
+
+    // Converts date from milliseconds to days.  Math.trunc() removes all decimals.
+    let day = Math.trunc(dateAsNum / 86400000)
+
+    // There are 2042 quotes in the API so this loop ensures the day variable does not exceed the number of quotes.
+    while (day > 2042) {
+        day = day - 2042;
+    }
+
+    // Adds the day to the end of the URL to give it the page number.
+    url = url + day;
+
+    fetch(url)
+    .then((response) => response.json())
+    .then((responseJson) => {return responseJson.results[0]})
+    .then((quote) => {
+        console.log(quote);
+        // Here again is where we can put the queries to update the page with the data from the quote object
+    })
+}
+
+// This call will have to stay in so that the page opens with a daily quote already there.
+getDailyQuote();
