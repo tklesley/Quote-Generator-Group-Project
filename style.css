@@ -1,0 +1,77 @@
+html {
+    background-color: gray;
+  }
+  body {
+  height 100%;
+    margin: 10px 5px 10px 5px;
+  }
+  
+  .container {
+    align: center;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  h1 {
+    font-size: 60px;
+    margin-left: 32px;
+  }
+  
+  nav a {
+    font-size: 32px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: 32px;
+    border: solid black 2px;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+  }
+  
+  main {
+    text-align: center;
+  }
+  
+  .quote-container {
+    margin: 0 auto 20px;
+    border: solid 2px black;
+    border-radius: 32px;
+    height: 400px;
+    width: 500px;
+    
+  }
+  
+  img {
+    height: 400px;
+    margin-right: 400px;
+  }
+  
+  .quote {
+    width: auto;
+    font-size: 36px;
+    font-style: italic
+  }
+  
+  .author, .date {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 0 auto;
+  }
+  
+  button {
+    position: absolute;
+    right: 700px;
+    margin-top: 52px;
+    font-size: 32px;
+    font-weight: bold;
+    border-radius: 12px;
+  }
+  
+  footer {
+    background-color: black;
+    height: 25px;
+    margin: auto -24px -24px -24px;
+  }
