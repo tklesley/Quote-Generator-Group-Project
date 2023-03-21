@@ -1,0 +1,99 @@
+html {
+    background-color: #f0f0ff;
+  }
+  body {
+    height: 100vh;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: auto 1fr 25px;
+  }
+  
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: header;
+  }
+
+  @media screen and (max-width: 780px) {
+    header {
+      flex-direction: column;
+    }
+  }
+  
+  h1 {
+    font-size: 60px;
+    margin-left: 32px;
+  }
+  
+  nav a {
+    font-size: 32px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: 32px;
+    border: solid black 2px;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+  }
+
+  a {
+    padding: 20px;
+  }
+  
+  main {
+    text-align: center;
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+    ". . . . ."
+    ". quotebox quotebox quotebox ."
+    ". img button button ."
+    ". . . . .";
+    grid-template-rows: 1fr auto 1fr 1fr;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+    margin: 0px 20px;
+    gap: 20px;
+  }
+  
+  .quote-container {
+    border: solid 2px black;
+    background-color: white;
+    grid-area: quotebox;
+    padding: 20px;
+  }
+  
+  img {
+    height: 100px;
+    grid-area: img;
+    justify-self: center;
+  }
+  
+  .quote {
+    width: auto;
+    font-size: 36px;
+    font-style: italic
+  }
+  
+  .author {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 0 auto;
+  }
+  
+  button {
+    font-size: 32px;
+    font-weight: bold;
+    border-radius: 12px;
+    grid-area: button;
+  }
+  
+  footer {
+    background-color: black;
+    bottom: 0px;
+    grid-area: footer;
+  }
