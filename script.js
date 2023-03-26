@@ -10,15 +10,18 @@
     Noted in the function that we could probably work without actually returning any data and just use the one function.
 */
 
+const quoteLabel = document.getElementById("quote-label");
+const quoteDiv = document.getElementById("quote");
+const authDiv = document.getElementById("author");
+
 async function getRandom() {
     return await fetch("https://api.quotable.io/random")
     .then((response) => response.json())
     .then((responseJson) => {
         console.log(responseJson);
-        // if we wanted to, we could put in stuff like "...queryselector().innerText = responseJson.content" here to update the page and just call the getRandom() function with the onclick listener.  Then we wouldn't have to write a new function.
-        // we'd be able to get rid of the "return await" part of the funciton before the fetch() method if that was the case.  Honestly wouldn't have to be an async function then either.
-        // ^ I picked this up by rewatching the live session Shadeira did with the weather api.
-        return responseJson;
+        quoteLabel.innerText = `Random Quote`;
+        quoteDiv.innerText = responseJson.content;
+        authDiv = responseJson.author;
     });
 }
 
@@ -35,6 +38,33 @@ checkQuoteData()
 */
 
 
-// I'll leave this here for now.  I might still be able to use it for getting a quote of the day thing going.
-const date = new Date();
-console.log(date);
+function getDailyQuote() {
+    const date = new Date();
+    const dateAsNum = date.getTime();
+
+    // URL that will fetch the daily quote
+    let url = "https://quotable.io/quotes?limit=1&page="
+
+    // Converts date from milliseconds to days.  Math.trunc() removes all decimals.
+    let day = Math.trunc(dateAsNum / 86400000)
+
+    // There are 2042 quotes in the API so this loop ensures the day variable does not exceed the number of quotes.
+    while (day > 2042) {
+        day = day - 2042;
+    }
+
+    // Adds the day to the end of the URL to give it the page number.
+    url = url + day;
+
+    fetch(url)
+    .then((response) => response.json())
+    .then((responseJson) => {return responseJson.results[0]})
+    .then((quote) => {
+        quoteLabel.innerText = `Quote of the Day`;
+        quoteDiv.innerText = quote.content;
+        authDiv.innerText = quote.author;
+})
+}
+
+// This call will have to stay in so that the page opens with a daily quote already there.
+getDailyQuote();
