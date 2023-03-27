@@ -21,7 +21,7 @@ async function getRandom() {
         console.log(responseJson);
         quoteLabel.innerText = `Random Quote`;
         quoteDiv.innerText = responseJson.content;
-        authDiv = responseJson.author;
+        authDiv.innerText = responseJson.author;
     });
 }
 
