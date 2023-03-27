@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="script.js"></script>
   <title>Quote Generator</title>
 </head>
 <body>
@@ -18,19 +19,17 @@
       </header>
   
       <main>
-        <h2 id="quote-label"></h2>
+        
         <div class="quote-container">
-          <p class="quote" id="quote"></p>
-          <p class="author" id="author"></p>
+          <p class="quote" id="quote">"You can't rely on how you look to sustain you, what sustains us, what is fundamentally beautiful is compassion; for yourself and your those around you."</p>
+          <p class="author" id="author">Lupita Nyong'o</p>
         </div>
         <img src="imgs/Person.png">
-        <button id="button">Generate Quote</button>
+        <button onclick="getRandom()" id="button">Generate Quote</button>
       
       </main>
-  
   </body>
   <footer>
   
     </footer>
-    <script type="text/javascript" src="./script.js"></script>
   </html>
