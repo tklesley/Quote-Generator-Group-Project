@@ -1,4 +1,3 @@
-
 /*
     getRandom works by returning the results of the fetch command.
 
@@ -11,28 +10,20 @@
     Noted in the function that we could probably work without actually returning any data and just use the one function.
 */
 
-var quoteLabel = document.getElementById("quote-label");
-var quoteDiv = document.getElementById("quote");
-var authDiv = document.getElementById("author");
+const quoteLabel = document.getElementById("quote-label");
+const quoteDiv = document.getElementById("quote");
+const authDiv = document.getElementById("author");
 
 async function getRandom() {
-    var quoteLabel = document.getElementById("quote-label");
-var quoteDiv = document.getElementById("quote");
-var authDiv = document.getElementById("author");
-
     return await fetch("https://api.quotable.io/random")
     .then((response) => response.json())
     .then((responseJson) => {
         console.log(responseJson);
         // quoteLabel.innerText = `Random Quote`;
-        if(quoteDiv != null) {
+        if(quoteDiv.innerText !== null) {
         quoteDiv.innerText = responseJson.content;
         }
-        else {
-            var quoteTest = document.getElementById("quote");
-            quoteTest.innerText = responseJson.content;
-        }
-        authDiv.innerText = responseJson.author;
+        // authDiv.innerText = responseJson.author;
     });
 }
 
@@ -78,4 +69,4 @@ function getDailyQuote() {
 }
 
 // This call will have to stay in so that the page opens with a daily quote already there.
-// getDailyQuote();
+getDailyQuote();
